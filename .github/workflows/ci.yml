@@ -10,6 +10,11 @@ jobs:
   test:
     runs-on: ubuntu-latest
 
+    permissions:
+      contents: read
+      checks: write
+      pull-requests: write
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -30,10 +35,9 @@ jobs:
       - name: Run tests
         run: mvn clean test
 
-      - name: Publish test report
-        uses: dorny/test-reporter@v1
+      - name: Upload test results
+        uses: actions/upload-artifact@v4
         if: always()
         with:
-          name: Test Results
-          path: target/surefire-reports/*.xml
-          reporter: java-junit
+          name: test-results
+          path: target/surefire-reports/
