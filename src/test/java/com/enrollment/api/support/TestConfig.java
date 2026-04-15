@@ -11,18 +11,20 @@ import org.junit.jupiter.api.BeforeAll;
 public abstract class TestConfig {
 
     public static final String BASE_URL = "https://courseenrollmentapimanagementsystem.onrender.com";
+    private static final boolean VERBOSE_LOGGING = false;
     protected static RequestSpecification spec;
 
     @BeforeAll
     static void setup() {
-        spec = new RequestSpecBuilder()
+        RequestSpecBuilder builder = new RequestSpecBuilder()
                 .setBaseUri(BASE_URL)
                 .setContentType(ContentType.JSON)
-                .setAccept(ContentType.JSON)
-                .addFilter(new RequestLoggingFilter())
-                .addFilter(new ResponseLoggingFilter())
-                .build();
-
+                .setAccept(ContentType.JSON);
+        if (VERBOSE_LOGGING) {
+            builder.addFilter(new RequestLoggingFilter())
+                   .addFilter(new ResponseLoggingFilter());
+        }
+        spec = builder.build();
         waitForServer();
     }
 
