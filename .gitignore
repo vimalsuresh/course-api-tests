@@ -1,0 +1,21 @@
+# Build output
+target/
+
+# Compiled files
+*.class
+
+# Executables and blocked file types
+*.exe
+*.sh
+*.bat
+*.bin
+*.json
+
+# Mac system files
+.DS_Store
+
+# IDE files
+.idea/
+*.iml
+.vscode/
+./.vscode/
