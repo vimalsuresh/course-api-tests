@@ -14,20 +14,18 @@ Automated API tests for the Course Enrollment System built as part of the DWP Se
 | Jackson Databind | 2.17.0 | JSON serialisation |
 
 ## Project Structure
-course-api-tests/
-├── pom.xml
-└── src/
-└── test/
-└── java/
-└── com/enrollment/api/
-├── support/
-│   ├── TestConfig.java       # Base class, shared config, server bootup
-│   └── Auth.java             # Login helpers for instructor and student
-└── tests/
-├── HealthCheckTest.java        # Server health check
-├── AuthenticationTest.java     # Login tests for both roles
-├── CourseTests.java            # Course endpoint tests
-└── EnrolmentJourneyTest.java   # End to end enrolment journey
+
+All source files are under `src/test/java/com/enrollment/api/` and split into two packages:
+
+**support** - Shared setup, not tests themselves
+- `TestConfig.java` - Base class inherited by all test classes. Sets up the REST Assured configuration and polls the server until it is ready before tests begin.
+- `Auth.java` - Handles login for both instructor and student roles and returns JWT tokens.
+
+**tests** - The actual test classes
+- `HealthCheckTest.java` - Verifies the server is running
+- `AuthenticationTest.java` - Login tests for both roles
+- `CourseTests.java` - All course endpoint tests
+- `EnrolmentJourneyTest.java` - Full end to end enrolment journey
 
 ## How to Run
 
