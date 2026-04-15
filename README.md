@@ -1,5 +1,7 @@
 # Course Enrollment API - Automated Test Suite
 
+![API Tests](https://github.com/vimalsuresh/course-api-tests/actions/workflows/ci.yml/badge.svg)
+
 Automated API tests for the Course Enrollment System built as part of the DWP Senior Test Engineer technical assessment.
 
 ## Tech Stack
