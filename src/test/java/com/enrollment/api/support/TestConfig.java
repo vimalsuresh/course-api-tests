@@ -10,7 +10,7 @@ import org.junit.jupiter.api.BeforeAll;
 
 public abstract class TestConfig {
 
-    public static final String BASE_URL = "https://courseenrollmentapimanagementsystem.onrender.com";
+    public static final String BASE_URL = Config.get("base.url");
     private static final boolean VERBOSE_LOGGING = false;
     protected static RequestSpecification spec;
 

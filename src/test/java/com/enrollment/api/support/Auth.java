@@ -7,9 +7,9 @@ import java.util.Map;
 
 public class Auth {
 
-    public static final String INSTRUCTOR = "instructor_1709406817094068";
-    public static final String STUDENT    = "student_1709406817094068";
-    public static final String PASSWORD   = "secPass341";
+    public static final String INSTRUCTOR = Config.get("instructor.username");
+    public static final String STUDENT    = Config.get("student.username");
+    public static final String PASSWORD   = Config.get("password");
 
     public static String instructorToken() {
         return getToken("/instructor/login", INSTRUCTOR, PASSWORD);
