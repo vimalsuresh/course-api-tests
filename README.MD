@@ -13,6 +13,11 @@ Automated API tests for the Course Enrollment System built as part of the DWP Se
 | AssertJ | 3.25.3 | Fluent assertions |
 | Jackson Databind | 2.17.0 | JSON serialisation |
 
+## CI Pipeline
+
+Tests run automatically on every push to main via GitHub Actions. Results are published as a test report on each run.
+
+
 ## Project Structure
 
 All source files are under `src/test/java/com/enrollment/api/` and split into two packages:
